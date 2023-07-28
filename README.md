@@ -19,3 +19,12 @@ Pets are not robots - they usually have some sort of self-determination! When ti
 - [ ] Create a visual representation of your pet.
 
 Rather than using numbers to convey your pet’s status, you could have some sort of visual representation of the pet. I.e., instead of printing hunger: 50, you could use smileys or ASCII art to show hunger when hunger >= 50.
+
+
+NOTES
+
+Updated tick() to have better validation and accuracy
+
+Developed Shelter class to be able to store all pet objects separately according to task specifications, re-did the whole application user interface to have better options and formatting as well
+
+Also added new instance variables and constructors as asked for VirtualPet
