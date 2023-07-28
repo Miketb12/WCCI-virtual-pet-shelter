@@ -5,33 +5,33 @@ public class VirtualPet {
     // Variables
     private String name;
 
-    private int energy;
+    private String desc;
+
+    private int thirst;
 
     private int hunger;
 
-    private int happiness;
-
-    private int health;
+    private int boredom;
 
     // Getters
     public String getName() {
         return name;
     }
 
-    public int getEnergy() {
-        return energy;
+    public String getDesc() {
+        return desc;
+    }
+
+    public int getThirst() {
+        return thirst;
     }
 
     public int getHunger() {
         return hunger;
     }
 
-    public int getHappiness() {
-        return happiness;
-    }
-
-    public int getHealth() {
-        return health;
+    public int getBoredom() {
+        return boredom;
     }
 
     // Setters
@@ -39,68 +39,81 @@ public class VirtualPet {
         this.name = name;
     }
 
-    public void setEnergy(int energy) {
-        this.energy = energy;
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public void setThirst(int thirst) {
+        this.thirst = thirst;
     }
 
     public void setHunger(int hunger) {
         this.hunger = hunger;
     }
 
-    public void setHappiness(int happiness) {
-        this.happiness = happiness;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
+    public void setBoredom(int boredom) {
+        this.boredom = boredom;
     }
 
     // Constructors
-    public VirtualPet(String name, int energy, int hunger, int happiness, int health) {
+    /*
+     * public VirtualPet(String name, int thirst, int hunger, int boredom) {
+     * this.name = name;
+     * this.thirst = thirst;
+     * this.hunger = hunger;
+     * this.boredom = boredom;
+     * }
+     */
+
+    public VirtualPet(String name, String desc, int thirst, int hunger, int boredom) {
         this.name = name;
-        this.energy = energy;
+        this.desc = desc;
+        this.thirst = thirst;
         this.hunger = hunger;
-        this.happiness = happiness;
-        this.health = health;
+        this.boredom = boredom;
+    }
+
+    public VirtualPet(String name, String desc) {
+        this.name = name;
+        this.desc = desc;
+    }
+
+    public VirtualPet(String name) {
+        this.name = name;
     }
 
     // Functions
 
+    public void water() {
+        thirst -= 15;
+    }
+
+    public void play() {
+        this.boredom -= 10;
+    }
+
     public void feed() {
         hunger -= 10;
-        happiness += 5;
-    }
-
-    public void goForWalk() {
-        hunger += 10;
-        happiness += 15;
-        energy -= 20;
-    }
-
-    public void sleep() {
-        energy += 60;
-    }
-
-    public void goToVet() {
-        hunger = 50;
-        happiness = 50;
-        energy = 50;
-        health = 100;
-    }
-
-    public boolean isSick() {
-        if (hunger >= 70 && energy <= 30) {
-            System.out.println(this.name + " is sick!");
-            return true;
-        }
-        return false;
     }
 
     public void tick() {
-        hunger -= 10;
-        energy -= 10;
-        happiness -= 10;
-        if (isSick()) {
+        hunger += 5;
+        thirst += 7;
+        boredom += 9;
+        if (hunger <= 0) {
+            hunger = 0;
+        } else if (hunger >= 100) {
+            hunger = 100;
+        }
+        if (this.boredom <= 0) {
+            this.boredom = 0;
+        } else if (this.boredom >= 100) {
+            this.boredom = 100;
+        }
+        if (thirst <= 0) {
+            thirst = 0;
+        } else if (thirst >= 100) {
+            thirst = 100;
         }
     }
 }
