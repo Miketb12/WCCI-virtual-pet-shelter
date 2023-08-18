@@ -55,16 +55,6 @@ public class VirtualPet {
         this.boredom = boredom;
     }
 
-    // Constructors
-    /*
-     * public VirtualPet(String name, int thirst, int hunger, int boredom) {
-     * this.name = name;
-     * this.thirst = thirst;
-     * this.hunger = hunger;
-     * this.boredom = boredom;
-     * }
-     */
-
     public VirtualPet(String name, String desc, int thirst, int hunger, int boredom) {
         this.name = name;
         this.desc = desc;
